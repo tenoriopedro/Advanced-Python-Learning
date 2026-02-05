@@ -1,0 +1,67 @@
+[project]
+name = "meu-projeto-mlops"
+version = "0.1.0"
+description = "Descrição inicial do projeto"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Pedro Tenório", email = "pstsouza13@gmail.com" }]
+
+dependencies = [
+    "meu-common",
+    "api",
+]
+
+[tool.uv]
+managed = true
+package = false
+
+[tool.uv.workspace]
+members = ["apps/*", "libs/*"]
+
+[tool.uv.sources]
+api = { workspace = true }
+meu-common = { workspace = true }
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+fix = true
+show-fixes = true
+indent-width = 4
+exclude = [
+    "venv", ".venv", "env", ".env", "node_modules", "__pycache__"
+]
+
+[tool.ruff.lint]
+select = [
+    "ASYNC", "A", "ANN", "B", "BLE", "C4", "C90", "COM", "E", "EM",
+    "ERA", "EXE", "F", "FBT", "FIX", "I", "ICN", "ISC", "Q", "RET",
+    "RSE", "S", "SIM", "SLF", "T10", "T20", "TC", "TD", "TRY", "UP",
+    "W", "YTT", "RUF", "N"
+]
+ignore = ["T201", "COM812"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**/*.py" = ["ANN201", "S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pyright]
+typeCheckingMode = "standard"
+pythonVersion = "3.11"
+include = ["apps", "libs"]
+exclude = [
+    "**/venv", "**/.venv", "**/env", "**/.env",
+    "**/node_modules", "**/__pycache__"
+]
+venv = ".venv"
+venvPath = "."
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

@@ -1,0 +1,14 @@
+[project]
+name = "noinit"
+version = "0.0.1"
+description = "noinit"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
