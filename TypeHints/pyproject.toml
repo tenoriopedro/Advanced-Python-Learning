@@ -30,6 +30,7 @@ ignore = [
   'FBT002',
   'FBT003',
   'S101',
+  'INP001'
 ]
 fixable = ["ALL"]
 unfixable = ['D']
