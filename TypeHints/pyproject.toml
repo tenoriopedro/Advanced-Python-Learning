@@ -5,12 +5,12 @@ description = "typehints_python"
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Luiz Otávio" }]
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 dependencies = ["rich>=14.1.0"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py311"
+target-version = "py313"
 fix = true
 show-fixes = true
 indent-width = 4
@@ -50,10 +50,10 @@ known-first-party = ["typehints_pg"]
 
 [tool.pyright]
 typeCheckingMode = "strict"
-pythonVersion = "3.11"
+pythonVersion = "3.13"
 ignore = []
 include = []
-exclude = ["**/.venv"]
+exclude = ["**/.venv", "**/node_modules", "**/__pycache__", "**/.*"]
 venv = ".venv"
 venvPath = "."
 executionEnvironments = [{ root = "." }]
